@@ -32,7 +32,7 @@
 extern "C" {
 #endif
 
-//extern int			   __cdecl glxLoadIT(void *Module);
+extern int			   __cdecl glxLoadIT(void *Module);
 
 #ifdef __cplusplus
 };

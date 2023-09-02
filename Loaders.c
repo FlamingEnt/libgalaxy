@@ -1,27 +1,27 @@
-/*ÄÄ- Internal revision no. 5.00b -ÄÄÄ Last revision at 16:50 on  2-02-1998 -ÄÄ
+/*ï¿½ï¿½- Internal revision no. 5.00b -ï¿½ï¿½ï¿½ Last revision at 16:50 on  2-02-1998 -ï¿½ï¿½
 
                               The 32 bit C Source
 
-                ÛÛÛßßÛÛÛ ÛÛÛßÛÛÛ ÛÛÛ    ÛÛÛßÛÛÛ ÛÛÛ  ÛÛÛ ÛÛÛ ÛÛÛ
-                ÛÛÛ  ßßß ÛÛÛ ÛÛÛ ÛÛÛ    ÛÛÛ ÛÛÛ  ßÛÛÛÛß  ÛÛÛ ÛÛÛ
-                ÛÛÛ ÜÜÜÜ ÛÛÛÜÛÛÛ ÛÛÛ    ÛÛÛÜÛÛÛ    ÛÛ     ßÛÛÛß
-                ÛÛÛ  ÛÛÛ ÛÛÛ ÛÛÛ ÛÛÛ    ÛÛÛ ÛÛÛ  ÜÛÛÛÛÜ    ÛÛÛ
-                ÛÛÛÜÜÛÛÛ ÛÛÛ ÛÛÛ ÛÛÛÜÜÜ ÛÛÛ ÛÛÛ ÛÛÛ  ÛÛÛ   ÛÛÛ
+                ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+                ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+                ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    ï¿½ï¿½     ï¿½ï¿½ï¿½ï¿½ï¿½
+                ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½
+                ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½   ï¿½ï¿½ï¿½
 
                                 MUSIC SYSTEM 
                 This document contains confidential information
                      Copyright (c) 1993-97 Carlo Vogelsang
 
-  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-  ³Û²± COPYRIGHT NOTICE ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±²Û³
-  ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
-  ³ This source file, LOADERS.C is Copyright (C) 1993-98 by  Carlo Vogelsang. ³
-  ³ You may not copy, distribute,  duplicate or clone this file  in any form, ³
-  ³ modified or non-modified. It belongs to the author.  By copying this file ³
-  ³ you are violating laws and will be punished. I will knock your brains in  ³
-  ³ myself or you will be sued to death..                                     ³
-  ³                                                                     Carlo ³
-  ÀÄ( How the fuck did you get this file anyway? )ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
+  ï¿½Û²ï¿½ COPYRIGHT NOTICE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û³
+  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´
+  ï¿½ This source file, LOADERS.C is Copyright (C) 1993-98 by  Carlo Vogelsang. ï¿½
+  ï¿½ You may not copy, distribute,  duplicate or clone this file  in any form, ï¿½
+  ï¿½ modified or non-modified. It belongs to the author.  By copying this file ï¿½
+  ï¿½ you are violating laws and will be punished. I will knock your brains in  ï¿½
+  ï¿½ myself or you will be sued to death..                                     ï¿½
+  ï¿½                                                                     Carlo ï¿½
+  ï¿½ï¿½( How the fuck did you get this file anyway? )ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 
 #include <stdio.h>
@@ -41,7 +41,6 @@
 #include "hdr\glx-au.h"
 #include "hdr\glx-it.h"
 #include "hdr\glx-xm.h"
-//#include "hdr\glx-aif.h"
 #include "hdr\glx-dls.h"
 #include "hdr\glx-far.h"
 #include "hdr\glx-mid.h"
@@ -214,10 +213,10 @@ int __cdecl glxLoadMusic(void *Stream,int Flags)
 		return glxLoadMID(Stream);
 	if (!memcmp(HdrBuffer,"MTM",3))
 		return glxLoadMTM(Stream);
-	if (!memcmp(HdrBuffer,"FARş",4))
+	if (!memcmp(HdrBuffer,"FARï¿½",4))
 		return glxLoadFAR(Stream);
-	//if (!memcmp(HdrBuffer,"IMPM",4))
-	//	return glxLoadIT(Stream);
+	if (!memcmp(HdrBuffer,"IMPM",4))
+		return glxLoadIT(Stream);
 	if (!memcmp(HdrBuffer+8,"AM  ",4))
 		return glxLoadAM(Stream,Flags);
 	if (!memcmp(HdrBuffer+44,"SCRM",4))
@@ -266,8 +265,6 @@ glxSample * __cdecl glxLoadSample(void *Stream,int Flags)
 			return glxLoadAS(Sample,Stream,Flags);
 		if (!memcmp(HdrBuffer,".snd",4))
 			return glxLoadAU(Sample,Stream,Flags);
-	//  if (!memcmp(HdrBuffer+8,"AIFF",4))
-//			return glxLoadAIF(Sample,Stream,Flags);
 		if (!memcmp(HdrBuffer+8,"WAVE",4))
 			return glxLoadWAV(Sample,Stream,Flags);
 		if (!memcmp(HdrBuffer+76,"SCRS",4))
