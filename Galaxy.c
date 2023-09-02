@@ -1,27 +1,27 @@
-/*Ä- Internal revision no. 5.00b -ÄÄÄÄ Last revision at 17:26 on 29-09-1999 -ÄÄ
+/*ï¿½- Internal revision no. 5.00b -ï¿½ï¿½ï¿½ï¿½ Last revision at 17:26 on 29-09-1999 -ï¿½ï¿½
 
                            The 32 bit Win32 C Source
 
-                ÛÛÛßßÛÛÛ ÛÛÛßÛÛÛ ÛÛÛ    ÛÛÛßÛÛÛ ÛÛÛ  ÛÛÛ ÛÛÛ ÛÛÛ
-                ÛÛÛ  ßßß ÛÛÛ ÛÛÛ ÛÛÛ    ÛÛÛ ÛÛÛ  ßÛÛÛÛß  ÛÛÛ ÛÛÛ
-                ÛÛÛ ÜÜÜÜ ÛÛÛÜÛÛÛ ÛÛÛ    ÛÛÛÜÛÛÛ    ÛÛ     ßÛÛÛß
-                ÛÛÛ  ÛÛÛ ÛÛÛ ÛÛÛ ÛÛÛ    ÛÛÛ ÛÛÛ  ÜÛÛÛÛÜ    ÛÛÛ
-                ÛÛÛÜÜÛÛÛ ÛÛÛ ÛÛÛ ÛÛÛÜÜÜ ÛÛÛ ÛÛÛ ÛÛÛ  ÛÛÛ   ÛÛÛ
+                ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+                ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+                ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    ï¿½ï¿½     ï¿½ï¿½ï¿½ï¿½ï¿½
+                ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½    ï¿½ï¿½ï¿½
+                ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½   ï¿½ï¿½ï¿½
 
                                 MUSIC SYSTEM 
                 This document contains confidential information
                      Copyright (c) 1993-99 Carlo Vogelsang
 
-  ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
-  ³Û²± COPYRIGHT NOTICE ±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±²Û³
-  ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
-  ³ This source file, GALAXY.C is Copyright (c) 1993-99  by  Carlo Vogelsang. ³
-  ³ You may not copy, distribute,  duplicate or clone this file  in any form, ³
-  ³ modified or non-modified. It belongs to the author.  By copying this file ³
-  ³ you are violating laws and will be punished. I will knock your brains in  ³
-  ³ myself or you will be sued to death..                                     ³
-  ³                                                                     Carlo ³
-  ÀÄ( How the fuck did you get this file anyway? )ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
+  ï¿½Û²ï¿½ COPYRIGHT NOTICE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û³
+  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´
+  ï¿½ This source file, GALAXY.C is Copyright (c) 1993-99  by  Carlo Vogelsang. ï¿½
+  ï¿½ You may not copy, distribute,  duplicate or clone this file  in any form, ï¿½
+  ï¿½ modified or non-modified. It belongs to the author.  By copying this file ï¿½
+  ï¿½ you are violating laws and will be punished. I will knock your brains in  ï¿½
+  ï¿½ myself or you will be sued to death..                                     ï¿½
+  ï¿½                                                                     Carlo ï¿½
+  ï¿½ï¿½( How the fuck did you get this file anyway? )ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 
 #include <math.h>
@@ -3203,6 +3203,7 @@ static int glxUpdateBuffer(char *Buffer, int BufferSize, int WritePos1, int Writ
 		//Update total byte counter
 		BytesWritten+=(BufferCount<<BlockShift);
 	}
+
 	return BytesWritten;
 }
 
@@ -4158,6 +4159,8 @@ int __cdecl glxInfo(char **Version,char **Driver)
 	return GLXERR_BADPARAMETER;
 }
 
+#define cpuid(info, x) __cpuidex(info, x, 0)
+
 int __cdecl glxInit(void)
 {
 	static char glxVersion[80];
@@ -4166,72 +4169,30 @@ int __cdecl glxInit(void)
 	if (1)
 	{
 #ifndef GALAXY_X64
-		//Get processor information (MMX/3DNow!/KNI)
-		__asm
+		int info[4];
+		cpuid(info, 0);
+		int nIds = info[0];
+
+		// Detect MMX and SSE CPU Features
+		if (nIds >= 0x00000001)
 		{
-			push	eax 							// Save EAX
-			push	ebx 							// Save EBX
-			push	ecx 							// Save ECX
-			push	edx 							// Save EDX
-			mov 	glxMMXFound,0					// No MMX support
-			mov 	glxK3DFound,0					// No 3DNow! support
-			mov 	glxKNIFound,0					// No KNI support
-			pushfd									// Save eflags
-			pop 	ebx 							// Store eflags in EBX
-			mov 	eax,ebx 						// EAX=EBX
-			xor 	eax,200000h 					// Flip CPUID bit
-			push	eax 							// Store new eflags
-			popfd									// Restore new eflags
-			pushfd									// Save new eflags
-			pop 	eax 							// Store new eflags in EAX
-			cmp 	eax,ebx 						// CPUID bit flipped ?
-			je		Done							// Nope ? We're done !
-			mov 	eax,00000000h					// EAX=00000000h (Largest std. func.)
-			_emit	00fh							// 00fh,0a2h = CPUID
-			_emit	0a2h							// What are you ?
-			cmp 	eax,00000001h					// Function 0001h supported ?
-			jb		Done							// Nope ? We're done !
-			mov 	eax,00000001h					// EAX=000000001h (Standard features)
-			_emit	00fh							// 00fh,0a2h = CPUID
-			_emit	0a2h							// Get standard features
-			test	edx,00800000h					// MMX present ?
-			setnz	glxMMXFound 					// If so, set MMX Flag
-			test	edx,02000000h					// KNI present ?
-			setnz	glxKNIFound 					// If so, set KNI Flag
-			mov 	eax,80000000h					// EAX=80000000h (Largest ext. func.)
-			_emit	00fh							// 00fh,0a2h = CPUID
-			_emit	0a2h							// Get largest ext. function
-			cmp 	eax,80000001h					// Function 80000001h supported ?
-			jb		Done							// Nope ? We're done !
-			mov 	eax,80000001h					// EAX=00001h (Extended features)
-			_emit	00fh							// 00fh,0a2h = CPUID
-			_emit	0a2h							// Get extended features
-			test	edx,80000000h					// 3DNow! present ?
-			setnz	glxK3DFound 					// If so, set 3DNow! Flag
-			Done:
-			pop 	edx 							// Restore EDX
-			pop 	ecx 							// Restore ECX
-			pop 	ebx 							// Restore EBX
-			pop 	eax 							// Restore EAX
+			cpuid(info, 0x00000001);
+			glxMMXFound = (info[3] & ((int)1 << 23)) != 0;
+			glxKNIFound = (info[3] & ((int)1 << 25)) != 0;
 		}
-		//Check if OS supports processor extensions
-		if (glxKNIFound)
+
+		cpuid(info, 0x80000000);
+		unsigned nExIds = info[0];
+
+		// Detect AMD 3DNow! and Enhanced 3DNow! CPU Features
+		if (nExIds >= 0x80000001)
 		{
-			__try
-			{
-				__asm
-				{
-					_emit	00fh
-					_emit	028h
-					_emit	0c8h					// movaps xmm1,xmm0
-				}
-			} 
-			__except(EXCEPTION_EXECUTE_HANDLER)
-			{
-				glxKNIFound=0;
-			}
+			cpuid(info, 0x80000001);
+			glxK3DFound = (info[3] & ((int)1 << 31)) != 0;
 		}
 #else
+		glxMMXFound = 0;
+		glxK3DFound = 0;
 		glxKNIFound = 0;
 #endif
 		//Clear internal structures
