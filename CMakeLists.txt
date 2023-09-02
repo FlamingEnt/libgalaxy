@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2...3.5)
 
-project(libgalaxy VERSION 5.00b LANGUAGES C ASM_MASM)
+project(libgalaxy VERSION 5.00 LANGUAGES C ASM_MASM)
 
 string(APPEND CMAKE_ASM_MASM_FLAGS " /Cp /Cx")
 
