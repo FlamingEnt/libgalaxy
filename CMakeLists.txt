@@ -7,8 +7,13 @@ string(APPEND CMAKE_ASM_MASM_FLAGS " /Cp /Cx")
 file(GLOB HEADERS *.h Hdr/*.h)
 source_group("Header Files" FILES ${HEADERS})
 
-file(GLOB SOURCES *.c *.asm)
+file(GLOB SOURCES *.c)
 source_group("Source Files" FILES ${SOURCES})
+
+if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
+	file(GLOB ASMSOURCES *.asm)
+	source_group("Assembly Files" FILES ${SOURCES})
+endif()
 
 # Excluded Items
 list(REMOVE_ITEM SOURCES
@@ -20,3 +25,6 @@ list(REMOVE_ITEM SOURCES
 add_library(libgalaxy STATIC ${HEADERS} ${SOURCES})
 
 target_include_directories(libgalaxy PRIVATE Hdr)
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+	target_compile_definitions(libgalaxy PRIVATE GALAXY_X64=1)
+endif()

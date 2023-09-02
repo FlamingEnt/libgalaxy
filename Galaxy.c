@@ -27,6 +27,7 @@
 #include <math.h>
 #include <windows.h>                            // Windows (tm) functions
 #include <mmsystem.h>                           // Win-MM functions
+#define DIRECTSOUND_VERSION 0x0700
 #include <dsound.h>								// DirectSound functions
 #include <initguid.h>							// Initialize all following GUIDs
 #include "hdr\eax.h"							// Creative EAX functions
@@ -4164,6 +4165,7 @@ int __cdecl glxInit(void)
 
 	if (1)
 	{
+#ifndef GALAXY_X64
 		//Get processor information (MMX/3DNow!/KNI)
 		__asm
 		{
@@ -4229,6 +4231,9 @@ int __cdecl glxInit(void)
 				glxKNIFound=0;
 			}
 		}
+#else
+		glxKNIFound = 0;
+#endif
 		//Clear internal structures
 		for (Voice=0;Voice<GLX_TOTALVOICES;Voice++)
 		{
@@ -5231,7 +5236,7 @@ glxVoice * __cdecl glxStartSample3D(int Voice,glxSample *Sample,int Frequency,in
 						DSBDesc.lpwfxFormat=&SampleType;
 						DSBDesc.dwBufferBytes=(Sample->Length*SampleType.nBlockAlign);
 						DSBDesc.dwFlags=DSBCAPS_LOCHARDWARE|DSBCAPS_CTRL3D|DSBCAPS_CTRLVOLUME|DSBCAPS_CTRLFREQUENCY;
-						if (IDirectSound_CreateSoundBuffer((LPDIRECTSOUND)glxAudioOutput.Handle,&DSBDesc,&(LPDIRECTSOUNDBUFFER)ThisVoice->Custom1,NULL)==DS_OK)
+						if (IDirectSound_CreateSoundBuffer((LPDIRECTSOUND)glxAudioOutput.Handle,&DSBDesc,(LPDIRECTSOUNDBUFFER)ThisVoice->Custom1,NULL)==DS_OK)
 						{
 							IDirectSoundBuffer_Lock((LPDIRECTSOUNDBUFFER)ThisVoice->Custom1,0,0,&WritePtr1,&WritePtrCnt1,NULL,NULL,DSBLOCK_ENTIREBUFFER);
 							if (Sample->Type&GLX_16BITSAMPLE) memcpy(WritePtr1,Sample->Data,Sample->Length*SampleType.nBlockAlign);
@@ -5295,7 +5300,7 @@ glxVoice * __cdecl glxStartSample3D(int Voice,glxSample *Sample,int Frequency,in
 						SampleType.wBitsPerSample=(ThisVoice->SmpType&GLX_16BITSAMPLE)?16:8;
 						SampleType.nAvgBytesPerSec=(SampleType.nSamplesPerSec*SampleType.nBlockAlign);
 						SampleType.cbSize=0;
-						if ((glxAudioOutput.Extensions)&&(((LPA3D4)glxAudioOutput.Extensions)->lpVtbl->NewSource((LPA3D4)glxAudioOutput.Extensions,A3DSOURCE_INITIAL_RENDERMODE_A3D,&(LPA3DSOURCE)ThisVoice->Custom1)==S_OK))
+						if ((glxAudioOutput.Extensions)&&(((LPA3D4)glxAudioOutput.Extensions)->lpVtbl->NewSource((LPA3D4)glxAudioOutput.Extensions,A3DSOURCE_INITIAL_RENDERMODE_A3D,(LPA3DSOURCE)ThisVoice->Custom1)==S_OK))
 						{
 //							((LPA3D4)glxAudioOutput.Extensions)->lpVtbl->Clear((LPA3D4)glxAudioOutput.Extensions);
 							((LPA3DSOURCE)ThisVoice->Custom1)->lpVtbl->SetTransformMode((LPA3DSOURCE)ThisVoice->Custom1,A3DSOURCE_TRANSFORMMODE_HEADRELATIVE);
