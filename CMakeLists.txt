@@ -10,19 +10,23 @@ source_group("Header Files" FILES ${HEADERS})
 file(GLOB SOURCES *.c)
 source_group("Source Files" FILES ${SOURCES})
 
-if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
-	file(GLOB ASMSOURCES *.asm)
-	source_group("Assembly Files" FILES ${SOURCES})
-endif()
-
 # Excluded Items
 list(REMOVE_ITEM SOURCES
-	${CMAKE_CURRENT_SOURCE_DIR}/Sbs.asm
 	${CMAKE_CURRENT_SOURCE_DIR}/eax.c
 	${CMAKE_CURRENT_SOURCE_DIR}/huffdec.c
 )
 
-add_library(libgalaxy STATIC ${HEADERS} ${SOURCES})
+if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
+	file(GLOB ASMSOURCES *.asm)
+	source_group("Assembly Files" FILES ${ASMSOURCES})
+
+	# Excluded Items
+	list(REMOVE_ITEM ASMSOURCES
+		${CMAKE_CURRENT_SOURCE_DIR}/Sbs.asm
+	)
+endif()
+
+add_library(libgalaxy STATIC ${HEADERS} ${SOURCES} ${ASMSOURCES})
 
 target_include_directories(libgalaxy PRIVATE Hdr)
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
